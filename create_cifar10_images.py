@@ -1,4 +1,4 @@
-#/usr/bin/env python2
+#!/usr/bin/env python
 
 import numpy as np
 import os
@@ -31,6 +31,11 @@ def load_cifar10_images(mode, cache_dir, name_format="{}.png"):
 if __name__ == "__main__":
     save_cifar10_images("train",
                   "/home/leoyolo/data/cifar-10-batches-py",
-                  "cache")
-    im_blob = load_cifar10_images("train", "cache")
-    print im_blob.shape
+                  "cache_train")
+    save_cifar10_images("test",
+                        "/home/leoyolo/data/cifar-10-batches-py",
+                        "cache_test")
+    im_blob_train = load_cifar10_images("train", "cache_train")
+    im_blob_test = load_cifar10_images("test", "cache_test")
+    print im_blob_train.shape
+    print im_blob_test.shape
